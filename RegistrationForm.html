@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <script>
+    var cityOptions = {
+      state1: ["Kannur", "Kozhikode", "Kochi"],
+      state2: ["Chennai", "Coimbatore", "Madurai"],
+      state3: ["Ahamedabad", "Surat", "Rajkot"]
+    };
+    function updateCities() {
+      var stateDropdown = document.getElementById("state");
+      var cityDropdown = document.getElementById("city");
+      var selectedState = stateDropdown.value;
+      
+
+      cityDropdown.innerHTML = "";
+
+
+      var cities = cityOptions[selectedState];
+      for (var i = 0; i < cities.length; i++) {
+        var option = document.createElement("option");
+        option.text = cities[i];
+        option.value = cities[i];
+        cityDropdown.add(option);
+      }
+    }
+
+    function validate()
+        {  
+          var num=document.getElementById("phone_number");  
+          var num1=document.getElementById("age"); 
+              if (isNaN(num)){  
+              alert("Enter Numeric value only");  
+              
+              return false;  
+             }
+             else
+             {  
+               return true;  
+             }  
+             if (isNaN(num1)){  
+              alert("Enter Numeric value only");  
+              return false;  
+             }
+             else
+             {  
+               return true;  
+             }  
+        }  
+  </script>
+  <style>
+    body {background-color:rgb(137, 180, 206);
+    padding:20px}
+    div {
+        padding: 7px;
+    }
+    
+    .boxsize{
+      inline-size:200px;
+      height: 20px; ;
+    }
+
+</style>
+
+</head>
+<body align="center">
+  
+    <h3>REGISTRATION FORM</h3>
+        <form action="" method="post">
+            
+          
+        <div class="container">
+            <div class="container">
+              <label for="fname" ><b>First name</b></label>&ensp; 
+              <input  class="boxsize" type="text" name="fname" required>
+              </div>
+              <div class="container">
+              <label for="lname" ><b>Last name</b></label>&ensp; 
+              &nbsp;<input class="boxsize"  type="text" name="lname" required>
+              </div>
+              <div class="container">
+              <label for="dob"><b>Date of birth</b></label>&emsp;
+              <input  class="boxsize"  type="date" name="dob" required>
+              <div class="container">
+              &emsp; &nbsp;<label for="age" ><b>Age</b></label>&ensp;
+              &emsp;&emsp;<input class="boxsize"  id="age" type="text" onclick="validate()"" name="age" required><br>
+              </div>
+              <div class="container">
+              <label for="gender"><b>Gender</b></label>
+              &ensp;&emsp;&emsp;&emsp;<input type="radio" name="gender"  value="Male">
+              <label for="Male">Male</label>
+              <input " type="radio" name="gender" value="Female">
+              <label for="Female">Female</label>
+              </div>
+              <div class="container">
+              <label for="phn"><b>Phone Number </b></label>
+              <input id="phone_number" class="boxsize" onclick="validate()"
+              maxlength"="10" type="text" name="phn" required>
+              </div>
+              <div class="container">
+              <label for="email"><b>Email</b></label> &emsp; &ensp; 
+              <input class="boxsize"  type="email" name="email" required>
+              </div>
+              <div class="container">
+              <label for="address"><b>Address</b></label> &emsp;
+              <textarea class="boxsize"  type="textarea" name="address" required></textarea>
+              </div>
+              <div class="container">
+            
+               <label for="state"><b>State</label>&emsp;&emsp;
+               <select class="boxsize"  id="state" name="state" onchange="updateCities()" required>
+                   <option value=""> Select State </option>
+                   <option value="state1">Kerala</option>
+                   <option value="state2">Tamil Nadu</option>
+                   <option value="state3">Odisha</option>
+                </select>
+                </div>
+
+                <div class="container">&emsp;
+                <label for="city"><b>City</b></label>&emsp;&ensp;
+                 <select class="boxsize"  id="city" name="city" required>
+                      <option value="">Select City </option>
+                      </select>
+                </div>      
+    
+                <div class="container">
+                   <label for="psw"><b>Password</b></label>&ensp;
+                   <input  class="boxsize" class="left" type="password"  name="psw" required><br><br>
+                   <button style="color:white;;background-color:rgb(106, 151, 39) ;" type="submit">Register</button>
+                </div>
+        </div>
+        
+</form></body></html>
